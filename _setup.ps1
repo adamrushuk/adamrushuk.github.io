@@ -24,20 +24,19 @@ Remove-Item -Path $pathsToRemove -Force -Recurse -Verbose #-WhatIf
 
 # Copy files from old blog
 $filesToCopy = @(
-    "_cleanup.ps1"
-    ".dockerignore"
-    "docker-compose.yml"
-    "Dockerfile"
-    "Docker.BuildAndRun.ps1"
-    "Docker.StopAndRemove.ps1"
-    "favicon.ico"
-    "Gemfile"
+    "_commands"
     "_pages"
     "_posts"
-    "_commands"
-    "category-archive.md"
-    "tag-archive.md"
+    "_setup.ps1"
+    ".dockerignore"
     "404.md"
+    "category-archive.md"
+    "docker-build.ps1"
+    "docker-compose.yml"
+    "Dockerfile"
+    "favicon.ico"
+    "Gemfile"
+    "tag-archive.md"
 )
 foreach ($fileToCopy in $filesToCopy) {
     $fullFilePath = Join-Path -Path $oldBlogPath -ChildPath $fileToCopy
