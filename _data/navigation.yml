@@ -1,0 +1,51 @@
+# main links
+main:
+  - title: "About"
+    url: /about/
+  # - title: "The Pipeline"
+  #   url: /pipeline/introduction/
+  - title: "Categories"
+    url: /categories/
+  - title: "Tags"
+    url: /tags/
+  - title: "Command Reference"
+    url: /commands/introduction/
+  - title: "Old Website"
+    url: http://www.virtuallyimpossible.co.uk/
+ # - title: "Sitemap"
+ #   url: /sitemap/
+
+# command links
+commands:
+ - title: Applications
+   children:
+     - title: "Chocolatey"
+       url: /commands/chocolatey/
+     - title: "Packer"
+       url: /commands/packer/
+     - title: "Vagrant"
+       url: /commands/vagrant/
+     - title: "VirtualBox"
+       url: /commands/virtualbox/
+ # - title: Title2
+ #   children:
+ #     - title: "Configuration"
+ #       url: /commands/configuration/
+
+# pipeline links
+# pipeline:
+#  - title: The Pipeline
+#  - title: Source
+#  - title: Build
+#    children:
+#      - title: "Packer"
+#        url: /pipeline/packer/
+#      - title: "Packer Example for Windows"
+#        url: /pipeline/packer-example-windows/
+#  - title: Testing
+#  - title: Release
+
+ # - title: Title2
+ #   children:
+ #     - title: "Configuration"
+ #       url: /commands/configuration/
