@@ -1,0 +1,8 @@
+version: '2'
+services:
+  jekyll:
+    image: adamrushuk/github-pages:latest
+    ports:
+      - "4000:4000"
+    volumes:
+      - .:/usr/src/app
