@@ -47,3 +47,10 @@ foreach ($fileToCopy in $filesToCopy) {
 $imageSourcePath = Join-Path -Path $oldBlogPath -ChildPath "assets/images"
 $imagesDestPath = Join-Path -Path $newBlogPath -ChildPath "assets/images"
 Copy-Item -Path $imageSourcePath -Destination $imagesDestPath -Force -Recurse -Verbose #-WhatIf
+
+# Manual steps
+<#
+Add the following to the code styling (after pre {} ~ line 163)
+color: #c7254e;
+background-color: #f9f2f4;
+#>
