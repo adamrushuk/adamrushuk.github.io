@@ -67,7 +67,7 @@ This covers:
 Publishing the module build artifact to multiple Azure DevOps Artifacts (NuGet) feeds; one per environment. Each
 environment shows the current version available using Status Badges:
 
-![Status Badges](/assets/images/powershell-build-pipeline/build-status-badges.PNG)
+![Status Badges](/assets/images/powershell-build-pipeline/build-status-badges.png)
 
 ## Build Pipeline Tasks for Azure DevOps
 
