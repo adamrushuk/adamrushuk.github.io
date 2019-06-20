@@ -101,3 +101,10 @@ The code below has comments throughout, but the main steps are:
 1. Publish a PowerShell module.
 
 {% gist 891f287fb27f0df378d696f366c3fa61 Publish-AzDOArtifactFeed.ps1 %}
+
+## Azure Artifacts Feed
+
+Once the PowerShell module has been published by the `Publish-AzDOArtifactFeed.ps1` script, the new NuGet package
+is available within the specified Azure Artifacts feed (eg. prod):
+  
+![Azure Artifacts Feed](/assets/images/powershell-release-pipeline/azure-artifacts-feed.png)
