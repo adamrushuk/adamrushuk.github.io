@@ -191,3 +191,7 @@ for offline use.
 
 The second **PublishBuildArtifacts** task publishes the whole `/Staging` folder as is (not zipped), to be used in the
 Release Pipeline.
+
+## What's Next?
+
+My next post will cover an [example Azure DevOps Release Pipeline for PowerShell modules](https://adamrushuk.github.io/example-azure-devops-release-pipeline-for-powershell-modules/)
