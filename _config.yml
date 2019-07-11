@@ -303,10 +303,10 @@ defaults:
     values:
       layout: single
       author_profile: true
-  # _commands collection
+  # _cheatsheets collection
   - scope:
       path: ""
-      type: commands
+      type: cheatsheets
     values:
       layout: single
       read_time: false
@@ -314,14 +314,14 @@ defaults:
       share: true
       comments: false
       sidebar:
-        nav: "commands"
+        nav: "cheatsheets"
       toc: true
       toc_sticky: true
 
 
 # Collections
 collections:
-  commands:
+  cheatsheets:
     output: true
     permalink: /:collection/:path/
     toc: true

@@ -8,29 +8,29 @@ main:
     url: /categories/
   - title: "Tags"
     url: /tags/
-  - title: "Command Reference"
-    url: /commands/introduction/
+  - title: "Cheatsheets"
+    url: /cheatsheets/introduction/
   - title: "Old Website"
     url: http://www.virtuallyimpossible.co.uk/
  # - title: "Sitemap"
  #   url: /sitemap/
 
-# command links
-commands:
+# cheatsheets links
+cheatsheets:
  - title: Applications
    children:
      - title: "Chocolatey"
-       url: /commands/chocolatey/
+       url: /cheatsheets/chocolatey/
      - title: "Packer"
-       url: /commands/packer/
+       url: /cheatsheets/packer/
      - title: "Vagrant"
-       url: /commands/vagrant/
+       url: /cheatsheets/vagrant/
      - title: "VirtualBox"
-       url: /commands/virtualbox/
+       url: /cheatsheets/virtualbox/
  # - title: Title2
  #   children:
  #     - title: "Configuration"
- #       url: /commands/configuration/
+ #       url: /cheatsheets/configuration/
 
 # pipeline links
 # pipeline:
@@ -48,4 +48,4 @@ commands:
  # - title: Title2
  #   children:
  #     - title: "Configuration"
- #       url: /commands/configuration/
+ #       url: /cheatsheets/configuration/

@@ -24,7 +24,7 @@ Remove-Item -Path $pathsToRemove -Force -Recurse -Verbose #-WhatIf
 
 # Copy files from old blog
 $filesToCopy = @(
-    "_commands"
+    "_cheatsheets"
     "_pages"
     "_posts"
     "_setup.ps1"

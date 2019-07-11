@@ -29,7 +29,7 @@ You can find all example files in my GitHub repository here: [https://github.com
 
 ## Installation
 
-Using [Chocolatey](https://adamrushuk.github.io/commands/chocolatey/), installing Packer is as easy as running:
+Using [Chocolatey](https://adamrushuk.github.io/cheatsheets/chocolatey/), installing Packer is as easy as running:
 
 `choco install packer -y`
 
