@@ -1,10 +1,7 @@
-# Was 2.6
 FROM starefossen/ruby-node:2-6-alpine
 
-# Testing 197 (was 192)
 ENV GITHUB_GEM_VERSION 192
 
-# Testing 2.2.0 (was 1.8.6)
 ENV JSON_GEM_VERSION 1.8.6
 
 RUN apk --update add --virtual build_deps \
