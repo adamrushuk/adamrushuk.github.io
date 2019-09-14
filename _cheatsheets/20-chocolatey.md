@@ -13,9 +13,7 @@ toc: true
 
 Chocolatey installs in seconds. Just run the following command from an administrative PowerShell v3+ prompt (Ensure Get-ExecutionPolicy is not Restricted):
 
-```powershell
-Invoke-WebRequest https://chocolatey.org/install.ps1 -UseBasicParsing | Invoke-Expression
-```
+`Invoke-WebRequest https://chocolatey.org/install.ps1 -UseBasicParsing | Invoke-Expression`
 
 ## List Installed Packages
 

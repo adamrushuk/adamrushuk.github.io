@@ -80,10 +80,10 @@ Use after updating port mapping:
 
 ## Show VirtualBox GUI Console
 
-<pre>
-config.vm.provider :virtualbox do |v, override|`
-        <b>v.gui = true</b>
-</pre>
+```ruby
+config.vm.provider :virtualbox do |v, override|
+    v.gui = true
+```
 
 ## Forward a port from host to guest
 
@@ -95,7 +95,7 @@ This example is for RDP port 3389:
 
 ## Vagrant Help
 
-```code
+```
 > vagrant -h
 Usage: vagrant [options] <command> [<args>]
 

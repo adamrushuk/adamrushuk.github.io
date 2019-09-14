@@ -15,16 +15,11 @@ toc: true
 
 `VBoxManage unregistervm VMNAME --delete`
 
-**Info:** includes hidden VMs created by Vagrant
-{: .notice--info}
-
 ## Delete ALL VMs
 
 This PowerShell one-liner will get all VM names from their folder names, then delete every VM. Just update your path to where your VirtualBox VMs are stored:
 
-```powershell
-(Get-ChildItem 'D:\VMs\VirtualBox').Name | ForEach-Object {VBoxManage unregistervm $_ --delete}
-```
+`(Get-ChildItem 'D:\VMs\VirtualBox').Name | ForEach-Object {VBoxManage unregistervm $_ --delete}`
 
 ## List forwarded VM ports
 
