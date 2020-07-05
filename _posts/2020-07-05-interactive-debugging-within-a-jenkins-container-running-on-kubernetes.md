@@ -18,6 +18,7 @@ excerpt: |
   Kubernetes?
 # header:
 #   image: /assets/images/logos/logo-text-8c3ba8a6.svg
+#   teaser: /assets/images/logos/image.png
 ---
 
 ## Introduction
@@ -61,15 +62,16 @@ There was simple nothing out there.
 
 Here is the solution I came up with:
 
-1. Install a terminal multiplexer (like `screen`) within the build container, which allowed sessions you can attach to:
+1. Install a terminal multiplexer (like `Screen`) within the build container, which allowed sessions you can attach to:
 
     ```bash
     # part of Dockerfile
     # Install dependencies and utils
-    apt-get update && apt-get install -y screen
+    apt-get update && apt-get install -y Screen
     ```
 
-1. Use Packer's new [`error-cleanup-provisioner`](https://www.packer.io/docs/templates/provisioners#on-error-provisioner) to pause the build:  
+1. Use Packer's new [`error-cleanup-provisioner`](https://www.packer.io/docs/templates/provisioners#on-error-provisioner)
+to pause the build if an error occurs:  
 (**NOTE**: This provisioner will not run unless the normal provisioning run fails)
 
     ```json
@@ -93,7 +95,7 @@ Here is the solution I came up with:
     kubectl exec --namespace jenkins -it "$podname" -- /bin/sh
     ```
 
-1. Attach to the screen session:  
+1. Attach to the Screen session:  
 (**NOTE**: Initially, when you enter the container shell, you won't see any CI job environment changes)
 
     ```bash
@@ -101,7 +103,7 @@ Here is the solution I came up with:
     # note the Jenkinfile job env vars are missing (eg: CI_DEBUG_ENABLED, and PACKER_*)
     printenv | sort | grep -E "CI_|PACKER"
 
-    # list screen sessions
+    # list Screen sessions
     screen -ls
 
     # attach detached session
