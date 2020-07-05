@@ -70,8 +70,7 @@ Here is the solution I came up with:
     ```
 
 1. Use Packer's new [`error-cleanup-provisioner`](https://www.packer.io/docs/templates/provisioners#on-error-provisioner) to pause the build:  
-**NOTE**: This provisioner will not run unless the normal provisioning run fails
-{: .notice--info}
+(**NOTE**: This provisioner will not run unless the normal provisioning run fails)
 
     ```json
     "error-cleanup-provisioner": {
@@ -95,8 +94,7 @@ Here is the solution I came up with:
     ```
 
 1. Attach to the screen session:  
-**NOTE**: Initially, when you enter the container shell, you won't see any CI job environment changes
-{: .notice--info}
+(**NOTE**: Initially, when you enter the container shell, you won't see any CI job environment changes)
 
     ```bash
     # show env vars
