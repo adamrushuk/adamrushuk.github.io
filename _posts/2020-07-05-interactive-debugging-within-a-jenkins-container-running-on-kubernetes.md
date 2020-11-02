@@ -1,6 +1,6 @@
 ---
-title: Interactive debugging within a Jenkins container running on Kubernetes
-description: Interactive debugging within a Jenkins container running on Kubernetes
+title: Interactive Debugging Within a Jenkins Container Running on Kubernetes
+description: Interactive Debugging Within a Jenkins Container Running on Kubernetes
 categories: 
   - kubernetes
 tags:
