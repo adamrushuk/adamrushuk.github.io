@@ -55,7 +55,7 @@ Excerpt from the [AKS Periscope](https://github.com/Azure/aks-periscope) repo:
 > customers to run initial diagnostics and collect logs and custom analyses that helps them > identify the underlying
 > problems.
 
-![Architecture](https://user-images.githubusercontent.com/33297523/64900285-f5b65c00-d644-11e9-9a52-c4345d1b1861.png)
+![AKS Periscope Architecture](/assets/images/posts/aks_periscope.png)
 
 ### AKS Periscope Deployment Considerations
 
