@@ -66,21 +66,23 @@ One additional requirement I had was for the AKS Periscope pods to run on system
 
 ### AKS Periscope Deployment Script
 
-This script will do the following:
+The `deploy_aks_periscope.sh` script will do the following:
 
-1. Create a SAS token valid for 60 minutes
-1. Deploy AKS Periscope into your cluster
-1. Collect and save logs into the storage account specified
+1. Create a SAS token valid for 60 minutes.
+1. Deploy AKS Periscope into your cluster.
+1. Collect and save logs into the storage account specified (this collection only runs once).
 
 {% gist f892a29ad8cbfc900907c9b334cfee4f deploy_aks_periscope.sh %}
 
 ### AKS Periscope Update Script
 
-This script will do the following:
+As the log collection only runs once, you will need to update `DIAGNOSTIC_RUN_ID` to trigger subsequent log collections.
 
-1. Create a SAS token valid for 60 minutes
-1. Update the `azureblob-secret`
-1. Trigger new log collection
-1. Collect and save logs into the storage account specified
+The `update_aks_periscope.sh` script will do the following:
+
+1. Create a SAS token valid for 60 minutes.
+1. Update the `azureblob-secret`.
+1. Trigger new log collection.
+1. Collect and save logs into the storage account specified.
 
 {% gist f892a29ad8cbfc900907c9b334cfee4f update_aks_periscope.sh %}
