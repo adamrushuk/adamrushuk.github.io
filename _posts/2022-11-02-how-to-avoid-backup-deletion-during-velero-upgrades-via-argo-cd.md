@@ -1,5 +1,5 @@
 ---
-title: Using ArgoCD resource.exclusions for velero to avoid backup deletion during Velero upgrades
+title: How to avoid backup deletion during Velero upgrades via Argo CD.
 description: Using ArgoCD resource.exclusions for velero to avoid backup deletion during Velero upgrades
 categories: 
   - kubernetes
