@@ -16,9 +16,9 @@ excerpt: |
   This post shows how to configure Terraform's OpenID Connect (OIDC) authentication from GitLab CI to Azure, for
   both the azurerm provider and the azurerm backend, which until recently was blocked by a known issue. The issue
   was fixed and released in v1.3.4.
-# header:
-#   image: /assets/images/logos/TODO.jpg
-#   teaser: /assets/images/logos/TODO.jpg
+header:
+  image: /assets/images/logos/terraform_azure_gitlab.png
+  teaser: /assets/images/logos/terraform_azure_gitlab.png
 ---
 
 ## Introduction
