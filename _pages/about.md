@@ -22,6 +22,7 @@ My current focus areas are:
 - Kubernetes
 - Terraform
 - CI/CD Pipelines
+- Artificial Intelligence (AI)
 
 ## What is the "Hype-Pipe"?
 
