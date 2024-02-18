@@ -19,7 +19,7 @@ locale                   : "en-GB"
 title                    : "The Hype-Pipe"
 title_separator          : "-"
 name                     : "Adam Rush"
-description              : "Passionate pseudo-geek, PowerShell lover, and DevOps advocate - falling down the Hype-Pipe, every day."
+description              : "Passionate Automation lover, and DevOps advocate - falling down the Hype-Pipe, every day."
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "adamrushuk/adamrushuk.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -109,7 +109,7 @@ analytics:
 author:
   name             : "Adam Rush"
   avatar           : "/assets/images/adam-rush-profile.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Passionate pseudo-geek, Automation lover, and DevOps advocate - falling down the Hype-Pipe, every day."
+  bio              : "Passionate Automation lover, and DevOps advocate - falling down the Hype-Pipe, every day."
   location         : "Bristol"
   # email            : "adamrushuk@gmail.com"
   links:
