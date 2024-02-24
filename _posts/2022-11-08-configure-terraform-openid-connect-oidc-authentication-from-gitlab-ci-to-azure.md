@@ -88,7 +88,7 @@ Run the code below to assign the `Contributor` RBAC role to the Subscription:
 
 ```bash
 SUBSCRIPTION_ID=$(az account show --query id --output tsv)
-az role assignment create --role "Contributor" --assignee "$APP_CLIENT_ID" --subscription "$SUBSCRIPTION_ID"
+az role assignment create --role "Contributor" --assignee "$APP_CLIENT_ID" --scope "/subscriptions/$SUBSCRIPTION_ID"
 ```
 
 ### Create Terraform Backend Storage and Assign RBAC Role to Container
@@ -171,7 +171,7 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "~> 3.30.0"
+      version = "~> 3.92.0"
     }
   }
 }
@@ -189,13 +189,18 @@ terraform init \
 
 ### Enable OIDC Authentication using GitLab Environment Variables
 
-To enable OIDC authentication for both the azurerm backend and standard azurerm provider, use the following GitLab
-CI variables:
+To enable OIDC authentication for both the azurerm backend and standard azurerm provider, use the following
+GitLab CI `id_tokens` config and `variables` below:
 
 ```yaml
+default:
+  id_tokens:
+    GITLAB_OIDC_TOKEN:
+      aud: https://gitlab.com
+      
 variables:
   ARM_USE_OIDC: "true"
-  ARM_OIDC_TOKEN: $CI_JOB_JWT_V2
+  ARM_OIDC_TOKEN: $GITLAB_OIDC_TOKEN
 ```
 
 To confirm OIDC authentication is being used, you can set the `TF_LOG` env var to `INFO`:
@@ -210,7 +215,7 @@ variables:
 Once all previous steps have been successfully completed, follow the steps below to run the `terraform` pipeline:
 
 1. Navigate to your project's main page, eg `https://gitlab.com/<YOUR_GROUP_NAME>/<YOUR_PROJECT_NAME>`
-1. In the left sidebar, click `CI/CD > Pipelines`.
+1. In the left sidebar, click `Build > Pipelines`.
 1. Above the list of pipeline runs, click `Run pipeline`.
 1. (optional) Change the `ENABLE_TERRAFORM_DESTROY_MODE` variable value to `true` to run Terraform Plan in "destroy mode".
 1. Click `Run pipeline`
@@ -231,7 +236,7 @@ PREFIX='arshzgl'
 # remove role assignment
 APP_CLIENT_ID=$(az ad app list --display-name "$APP_REG_NAME" --query [].appId --output tsv)
 SUBSCRIPTION_ID=$(az account show --query id --output tsv)
-az role assignment delete --role "Contributor" --assignee "$APP_CLIENT_ID" --subscription "$SUBSCRIPTION_ID"
+az role assignment delete --role "Contributor" --assignee "$APP_CLIENT_ID" --scope "/subscriptions/$SUBSCRIPTION_ID"
 
 # remove app reg
 echo "Deleting app [$APP_REG_NAME] with App Client Id: [$APP_CLIENT_ID]..."
