@@ -15,7 +15,7 @@ excerpt: |
 
   The problem was the Helm Chart test pipeline required a nested Kubernetes environment, as our self-hosted GitLab
   runs on Kubernetes. DinD (Docker in Docker) and KinD (Kubernetes in Docker) solved the nested requirement, but
-  errors were occuring.
+  errors were occurring.
 header:
   image: /assets/images/logos/gitlab_helm_k8s.png
   teaser: /assets/images/logos/gitlab_helm_k8s.png
