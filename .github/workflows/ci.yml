@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [master]
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    name: Build Jekyll site
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+
+      - name: Build site
+        run: bundle exec jekyll build --destination _site
+        env:
+          JEKYLL_ENV: production
+
+      - name: Verify main.min.js is present and does not contain vulnerable jQuery
+        run: |
+          test -f _site/assets/js/main.min.js || (echo "ERROR: main.min.js not found in built site" && exit 1)
+          grep -q "3.3.1" _site/assets/js/main.min.js && (echo "ERROR: Vulnerable jQuery 3.3.1 found in main.min.js" && exit 1) || true
+          echo "OK: _site/assets/js/main.min.js present and does not contain vulnerable jQuery 3.3.1"
+
+      - name: Verify index.html is present
+        run: |
+          test -f _site/index.html || (echo "ERROR: index.html not found in built site" && exit 1)
+          grep -q "main.min.js" _site/index.html || (echo "ERROR: main.min.js not referenced in index.html" && exit 1)
+          echo "OK: _site/index.html present and references main.min.js"
