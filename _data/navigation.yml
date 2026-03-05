@@ -8,44 +8,7 @@ main:
     url: /categories/
   - title: "Tags"
     url: /tags/
-  - title: "Cheatsheets"
-    url: /cheatsheets/introduction/
   - title: "Old Blog"
     url: http://www.virtuallyimpossible.co.uk/
- # - title: "Sitemap"
- #   url: /sitemap/
-
-# cheatsheets links
-cheatsheets:
- - title: Applications
-   children:
-     - title: "Chocolatey"
-       url: /cheatsheets/chocolatey/
-     - title: "Packer"
-       url: /cheatsheets/packer/
-     - title: "Vagrant"
-       url: /cheatsheets/vagrant/
-     - title: "VirtualBox"
-       url: /cheatsheets/virtualbox/
- # - title: Title2
- #   children:
- #     - title: "Configuration"
- #       url: /cheatsheets/configuration/
-
-# pipeline links
-# pipeline:
-#  - title: The Pipeline
-#  - title: Source
-#  - title: Build
-#    children:
-#      - title: "Packer"
-#        url: /pipeline/packer/
-#      - title: "Packer Example for Windows"
-#        url: /pipeline/packer-example-windows/
-#  - title: Testing
-#  - title: Release
-
- # - title: Title2
- #   children:
- #     - title: "Configuration"
- #       url: /cheatsheets/configuration/
+  # - title: "Sitemap"
+  #   url: /sitemap/
