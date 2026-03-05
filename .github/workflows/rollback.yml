@@ -1,0 +1,87 @@
+name: Rollback
+
+# Manually revert a breaking commit on master to recover the live site.
+#
+# How to use:
+#   1. Go to Actions -> Rollback -> Run workflow
+#   2. Paste the full SHA of the commit that broke the site
+#   3. Click "Run workflow"
+#
+# The workflow creates a standard "Revert" commit on master.
+# GitHub Pages automatically redeploys whenever master changes, so the
+# live site will recover within ~1-2 minutes.
+#
+# To find the breaking commit SHA, check:
+#   - The GitHub commit history: https://github.com/adamrushuk/adamrushuk.github.io/commits/master
+#   - The failed CI run that detected the problem
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit_sha:
+        description: >
+          Full SHA of the breaking commit to revert
+          (e.g. a1b2c3d4e5f6... — copy from the GitHub commit history)
+        required: true
+        type: string
+
+jobs:
+  rollback:
+    name: Revert breaking commit on master
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 0
+
+      - name: Validate commit SHA exists on master
+        run: |
+          SHA="${{ inputs.commit_sha }}"
+
+          # Ensure the input is a valid git SHA (7–40 lowercase hex characters)
+          if ! echo "${SHA}" | grep -qE '^[0-9a-f]{7,40}$'; then
+            echo "ERROR: '${SHA}' is not a valid git SHA."
+            echo "       A SHA must be 7–40 lowercase hexadecimal characters."
+            exit 1
+          fi
+
+          if ! git cat-file -e "${SHA}^{commit}" 2>/dev/null; then
+            echo "ERROR: Commit SHA '${SHA}' was not found in this repository."
+            exit 1
+          fi
+          if ! git merge-base --is-ancestor "${SHA}" HEAD; then
+            echo "ERROR: Commit SHA '${SHA}' is not an ancestor of master."
+            echo "       Only commits that are already on master can be reverted."
+            exit 1
+          fi
+          echo "OK: Commit '${SHA}' found on master."
+
+      - name: Revert commit and push to master
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Use --no-commit so we can inspect for conflicts before finalising
+          if ! git revert --no-edit --no-commit "${{ inputs.commit_sha }}"; then
+            echo ""
+            echo "ERROR: 'git revert' encountered merge conflicts."
+            echo "       This usually means the commit cannot be automatically undone because"
+            echo "       subsequent commits overlap with the same files."
+            echo ""
+            echo "       To resolve manually:"
+            echo "         1. Clone the repo locally"
+            echo "         2. Run: git revert ${{ inputs.commit_sha }}"
+            echo "         3. Resolve any conflicts, then commit and push"
+            exit 1
+          fi
+
+          git commit --no-edit -m "Revert breaking commit ${{ inputs.commit_sha }}"
+          git push origin master
+          echo "Revert committed and pushed. GitHub Pages will redeploy automatically."
+          echo "Monitor progress at: https://github.com/adamrushuk/adamrushuk.github.io/actions"
+          echo "Live site: https://adamrushuk.github.io/"
