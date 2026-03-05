@@ -295,14 +295,3 @@ defaults:
     values:
       layout: single
       author_profile: true
-
-# Collections
-collections:
-  cheatsheets:
-    output: true
-    permalink: /:collection/:path/
-    toc: true
-    toc_sticky: true
-  # pipeline:
-  #   output: true
-  #   permalink: /:collection/:path/
